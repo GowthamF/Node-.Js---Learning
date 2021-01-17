@@ -4,12 +4,16 @@ const rootDir= require('../helper/path');
 
 const router = express.Router();
 
-router.get('/add-users',(req,res,next)=>{
-    res.sendFile(path.join(rootDir,'views','add-users.html'));
+const products =[];
+
+router.get('/add-product',(req,res,next)=>{
+    res.sendFile(path.join(rootDir,'views','add-product.html'));
 });
 
-router.post('/add-users',(req,res,next)=>{
+router.post('/add-product',(req,res,next)=>{
+    products.push({title : req.body.title});
     res.redirect('/');
 });
 
-module.exports= router;
+exports.routes= router;
+exports.products = products;
