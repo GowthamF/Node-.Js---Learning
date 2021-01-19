@@ -1,0 +1,33 @@
+<%- include('includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+    <%- include('includes/navigation.ejs') %>
+
+    <main>
+        <% if(users.length > 0) { %>
+        <div class="grid">
+            <% for(let user of users) { %>
+                <article class="card product-item">
+                    <header class="card__header">
+                        <h1 class="product__title"><%= user.name %></h1>
+                    </header>
+                    <div class="card__image">
+                        <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ACrystal_Clear_kdm_user_female.svg&psig=AOvVaw0-2BjBuBHwA2r5pot3XHOC&ust=1611065119717000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCICU87PTpe4CFQAAAAAdAAAAABAD" alt="A Book">
+                    </div>
+                    <div class="card__content">
+                        <h2 class="product__price">$19.99</h2>
+                        <p class="product__description">A very interesting book about so many even more interesting things!</p>
+                    </div>
+                    <div class="card__actions">
+                        <button class="btn">Add to Cart</button>
+                    </div>
+                </article>
+            <% } %>
+        </div>
+        <% } else { %>
+            <h2>No User Found</h2>
+        <% } %>
+    </main>
+    <%- include('includes/end.ejs') %>
