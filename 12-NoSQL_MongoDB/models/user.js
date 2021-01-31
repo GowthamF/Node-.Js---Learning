@@ -65,10 +65,19 @@ class User{
           return p._id.toString();
         });
         
+        // Comparing elements from two array
+        // const diff = productIds.filter((p)=>{
+        //   return !existingProductIds.includes(p.toString())
+        // });
+
+        // Comparing elements from two array
         const updatedCartItems = this.cart.items.filter(cp=>{
           return existingProductIds.includes(cp.productId.toString());
         });
         db.collection('users').updateOne({_id: new ObjectId(this._id)},{$set:{cart:{items: updatedCartItems}}});
+
+
+        console.log(updatedCartItems);
 
         }).catch((err)=>{
             console.log(err);
